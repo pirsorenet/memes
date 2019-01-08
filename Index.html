@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>MemeViewer</title>
+	<meta name="description" content="The HTML5 Herald">
+	<meta name="author" content="SitePoint">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body>	
+	<nav class="navbar navbar-expand navbar-dark bg-dark p-0 fixed-top">
+	  <div class="collapse navbar-collapse" id="NavBar">
+		<ul class="navbar-nav mr-auto" style="padding-bottom: 2px">
+		  <li class="nav-item active">
+			<a style="padding-top: 0; padding-bottom: 0" class="nav-link" href="#">New <span class="sr-only">(current)</span></a>
+		  </li>
+		  <li class="nav-item">
+			<a style="padding-top: 0; padding-bottom: 0" class="nav-link" href="#">Used</a>
+		  </li>
+		</ul>
+	  </div>
+	</nav>
+	<div class="container-fluid" style="margin-top: 24px">
+		<div class="row bg-dark" id="MemesContainer">
+			
+		</div>
+	</div>
+	
+	<script>
+	$(document).ready(function(){	
+		for(var i = 0; i < 10; i++)
+		{
+		var element = `
+			<div id="Meme${i}" class="col-md-12 mh-50" style="border-bottom: 1px solid black;background-image:url('https://i.redd.it/kizwqad2cz821.jpg');background-repeat: no-repeat;background-position: center;background-size: cover;">
+				<div class="row" style="height:100%;width:100%;position: absolute;background-color: rgba(0, 0, 0, 0.5);">
+				</div>
+				<div class="row" style="margin-top: 30px; margin-bottom: 30px">
+					<div class="col-md-5">						
+						<button id="Hashtag${i}" class="btn btn-info my-1 w-25">
+						<i class="fas fa-hashtag"></i></button>
+						<label class="text-white mx-1" for="Hashtag${i}">Copy hashtags</label><br>
+						
+						<button id="Done${i}" class="btn btn-danger my-1 w-25">
+						<i class="fas fa-check-square"></i></button>
+						<label class="text-white mx-1" for="Done${i}">Exclude</label><br>
+					</div>
+				</div>
+			</div>
+		`;
+		
+			$('#MemesContainer').append(element);
+		}
+	});
+	</script>
+</body>
+</html>
